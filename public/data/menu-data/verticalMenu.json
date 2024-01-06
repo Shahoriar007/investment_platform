@@ -1,0 +1,28 @@
+{
+	"menu": [
+		{
+			"url": "/",
+			"name": "Home",
+			"icon": "home",
+			"slug": "home"
+		},
+        {
+            "url": "/users",
+            "name": "Users",
+            "icon": "users",
+            "slug": "users"
+        },
+        {
+            "url": "/blog-category",
+            "name": "Blog Category",
+            "icon": "package",
+            "slug": "blog-category"
+        },
+        {
+            "url": "/blog",
+            "name": "Blog",
+            "icon": "package",
+            "slug": "blog"
+        }
+	]
+}
