@@ -15,6 +15,10 @@ require __DIR__ . '/users/users.php';
 //Blog routes
 require __DIR__ . '/blogs/blogs.php';
 
+//Bussiness routes
+require __DIR__ . '/bussiness/bussiness.php';
+
+
 
 
 Route::middleware(['auth'])->group(function () {

@@ -24,5 +24,13 @@
             "icon": "package",
             "slug": "blog"
         }
+
+        ,
+        {
+            "url": "/bussiness-category",
+            "name": "Bussiness category",
+            "icon": "package",
+            "slug": "bussiness-category"
+        }
 	]
 }
