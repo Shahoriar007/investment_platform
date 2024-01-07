@@ -17,6 +17,12 @@
         "name": "Blog Category",
         "icon": "package",
         "slug": "blog-category"
+    },
+    {
+        "url": "/bussiness-category",
+        "name": "Bussiness category",
+        "icon": "package",
+        "slug": "bussiness-category"
     }
 
   ]

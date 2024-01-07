@@ -23,6 +23,13 @@
             "name": "Blog",
             "icon": "package",
             "slug": "blog"
-        }
+        },
+
+    {
+        "url": "/bussiness-category",
+        "name": "Bussiness Category",
+        "icon": "package",
+        "slug": "bussiness-category"
+    }
 	]
 }
