@@ -65,7 +65,21 @@ class BussinessProfileRepository
         }
     }
 
-    
+    public function update($validated, $id, $request): bool
+    {
+        try {
+            $data = $this->findById($id);
+            $data->update($validated);
+            return true;
+
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            info($e);
+            return false;
+        }
+    }
+
+
     /**
      * @param $id
      * @return bool

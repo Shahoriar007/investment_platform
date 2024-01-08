@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Bussiness;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BussinessProfile\StoreBussinessProfileRequest;
+use App\Http\Requests\BussinessProfile\UpdateBussinessProfileRequest;
 use App\Repositories\Bussiness\BussinessProfileRepository;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,31 @@ class BussinessProfileController extends Controller
             return redirect()->route('bussiness-profile')->with('success', 'bussiness profile successfully created.');
         }else{
             return redirect()->route('bussiness-profile')->with('error', 'bussiness profile failed created.');
+        }
+
+    }
+
+    public function edit($id)
+    {
+        $breadcrumbs = [
+            ['link' => "/bussiness-profile", 'name' => "bussiness profile"], ['name' => "Edit"]
+        ];
+
+        $data = $this->repository->edit($id);
+
+        return view('bussiness.bussiness-profile.edit', compact('data', 'breadcrumbs'));
+    }
+
+    public function update(UpdateBussinessProfileRequest $request, $id)
+    {
+        $validated = $request->validated();
+
+        $data = $this->repository->update($validated, $id, $request);
+
+        if($data){
+            return redirect()->route('bussiness-profile')->with('success', 'bussiness profile successfully updated.');
+        }else{
+            return redirect()->route('bussiness-profile')->with('error', 'bussiness profile failed updated.');
         }
 
     }

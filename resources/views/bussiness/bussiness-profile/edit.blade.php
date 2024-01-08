@@ -100,6 +100,101 @@
                                                     @enderror
                                             </div>
 
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">avg_monthly_sale</label>
+                                                <input type="text" id="avg_monthly_sale" name="avg_monthly_sale" value="{{ $data->avg_monthly_sale }}" class="form-control"
+                                                    placeholder="Enter avg_monthly_sale" required>
+                                                    @error('avg_monthly_sale')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">latest_yearly_sale</label>
+                                                <input type="text" id="latest_yearly_sale" name="latest_yearly_sale" value="{{ $data->latest_yearly_sale }}" class="form-control"
+                                                    placeholder="Enter latest_yearly_sale" required>
+                                                    @error('latest_yearly_sale')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">profit_margin_percentage</label>
+                                                <input type="text" id="profit_margin_percentage" name="profit_margin_percentage" value="{{ $data->profit_margin_percentage }}" class="form-control"
+                                                    placeholder="Enter profit_margin_percentage" required>
+                                                    @error('profit_margin_percentage')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">expected_valuation</label>
+                                                <input type="text" id="expected_valuation" name="expected_valuation" value="{{ $data->expected_valuation }}" class="form-control"
+                                                    placeholder="Enter expected_valuation" required>
+                                                    @error('expected_valuation')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">real_valuation</label>
+                                                <input type="text" id="real_valuation" name="real_valuation" value="{{ $data->real_valuation }}" class="form-control"
+                                                    placeholder="Enter real_valuation" required>
+                                                    @error('real_valuation')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="description">Description</label>
+                                                <textarea name="description" class="form-control" id="description" rows="2"
+                                                    placeholder="Enter description">{{ $data->description }}</textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">bussiness_categories_id</label>
+                                                <input type="text" id="bussiness_categories_id" name="bussiness_categories_id" value="{{ $data->bussiness_categories_id }}" class="form-control"
+                                                    placeholder="Enter bussiness_categories_id" required>
+                                                    @error('bussiness_categories_id')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">total_permanent_employee</label>
+                                                <input type="text" id="total_permanent_employee" name="total_permanent_employee" value="{{ $data->total_permanent_employee }}" class="form-control"
+                                                    placeholder="Enter total_permanent_employee" required>
+                                                    @error('total_permanent_employee')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">established_date</label>
+                                                <input type="text" id="established_date" name="established_date" value="{{ $data->established_date }}" class="form-control"
+                                                    placeholder="Enter established_date" required>
+                                                    @error('established_date')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">created_by</label>
+                                                <input type="text" id="created_by" name="created_by" value="{{ $data->created_by }}" class="form-control"
+                                                    placeholder="Enter created_by" required>
+                                                    @error('created_by')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">updated_by</label>
+                                                <input type="text" id="updated_by" name="updated_by" value="{{ $data->updated_by }}" class="form-control"
+                                                    placeholder="Enter updated_by" required>
+                                                    @error('updated_by')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">deleted_by</label>
+                                                <input type="text" id="deleted_by" name="deleted_by" value="{{ $data->deleted_by }}" class="form-control"
+                                                    placeholder="Enter deleted_by" required>
+                                                    @error('deleted_by')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+
 
 
 
@@ -111,7 +206,7 @@
 
                                         </div>
                                         <hr>
-                                      
+
                                         <div style = "margin-top: 20px;">
                                             <div class="action-btns">
                                                 {{-- <button class="btn btn-label-primary me-3 waves-effect">
