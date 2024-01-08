@@ -36,6 +36,12 @@
         "name": "Bussiness profile",
         "icon": "package",
         "slug": "bussiness-profile"
+    },
+    {
+        "url": "/investor-profile",
+        "name": "Investor profile",
+        "icon": "package",
+        "slug": "investor-profile"
     }
 	]
 }
