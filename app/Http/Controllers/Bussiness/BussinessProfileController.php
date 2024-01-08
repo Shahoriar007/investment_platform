@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BussinessProfile\StoreBussinessProfileRequest;
 use App\Http\Requests\BussinessProfile\UpdateBussinessProfileRequest;
 use App\Repositories\Bussiness\BussinessProfileRepository;
+use App\Transformers\BussinessProfileTransformer;
 use Illuminate\Http\Request;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
+
 
 class BussinessProfileController extends Controller
 {
@@ -95,6 +99,27 @@ class BussinessProfileController extends Controller
             return redirect()->route('bussiness-profile')->with('error', 'bussiness Profile failed deleted.');
         }
 
+    }
+
+    public function apiShow(Request $request, $id)
+    {
+        $data = $this->repository->apiShow($id);
+        info($data);
+
+        if (!$data) {
+            return response()->json([
+                'data' => []
+            ]);
+        }
+
+        $manager = new Manager();
+        $resource = new Item($data, new BussinessProfileTransformer);
+
+        $transformedData = $manager->createData($resource)->toArray();
+        info($transformedData);
+        return response()->json([
+            'data' => $transformedData
+        ]);
     }
 
 

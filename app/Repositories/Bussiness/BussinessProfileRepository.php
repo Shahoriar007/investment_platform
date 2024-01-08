@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Bussiness;
 
+
 use App\Models\BussinessProfile;
 
 class BussinessProfileRepository
@@ -108,6 +109,18 @@ class BussinessProfileRepository
 
         try {
             $data = $this->model->findOrFail($id);
+            return $data;
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
+
+    public function apiShow($id)
+    {
+
+        try {
+            $data = $this->findById($id);
             return $data;
         } catch (\Exception $e) {
             error_log($e->getMessage());
