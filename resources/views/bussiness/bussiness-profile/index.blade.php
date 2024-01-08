@@ -94,7 +94,7 @@
                                             class="d-inline">
                                             @method('DELETE')
                                             @csrf
-                                            <input type="text" name="bussiness-profile_id" id="delete-bussiness-profile-id" hidden>
+                                            <input type="text" name="bussinessProfile_id" id="delete-bussiness-profile-id" hidden>
                                             <button type="button" class="btn-link"
                                                 style="border: none; background: none; padding: 0; margin: 0;"
                                                 onclick="confirmDelete({{ $bussinessProfile->id }})">

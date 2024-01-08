@@ -83,6 +83,20 @@ class BussinessProfileController extends Controller
 
     }
 
+    public function destroy(Request $request)
+    {
+        $id = $request->bussinessProfile_id;
+
+        $data = $this->repository->destroy($id);
+
+        if($data){
+            return redirect()->route('bussiness-profile')->with('success', 'bussiness Profile successfully deleted.');
+        }else{
+            return redirect()->route('bussiness-profile')->with('error', 'bussiness Profile failed deleted.');
+        }
+
+    }
+
 
 
 }
