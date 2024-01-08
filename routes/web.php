@@ -17,6 +17,8 @@ require __DIR__ . '/blogs/blogs.php';
 
 //Bussiness routes
 require __DIR__ . '/bussiness/bussiness.php';
+require __DIR__ . '/bussiness/apiBussiness.php';
+
 
 
 

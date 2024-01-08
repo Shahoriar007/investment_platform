@@ -25,7 +25,7 @@ return new class extends Migration
             $table->decimal('profit_margin_percentage')->nullable();
             $table->decimal('expected_valuation')->nullable();
             $table->decimal('real_valuation')->nullable();
-            $table->string('description')->nullable();
+            $table->text("description")->nullable();
             $table->unsignedBigInteger('bussiness_categories_id')->nullable();
             $table->string('total_permanent_employee')->nullable();
             $table->date('established_date')->nullable();
