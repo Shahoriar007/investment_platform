@@ -15,7 +15,11 @@ class BussinessProfileController extends Controller
     {
         $this->repository = $repository;
     }
-
+/**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function index(Request $request){
         $breadcrumbs = [
             ['link' => "/bussiness-profile", 'name' => "Bussiness profile"], ['name' => "Index"]
@@ -27,6 +31,17 @@ class BussinessProfileController extends Controller
 
 
     }
+
+
+    public function create()
+    {
+        $breadcrumbs = [
+            ['link' => "/bussiness-profile", 'name' => "Bussiness profile"], ['name' => "Create"]
+        ];
+
+        return view('bussiness.bussiness-profile.create', compact('breadcrumbs'));
+    }
+
 
     public function store( StoreBussinessProfileRequest $request){
 

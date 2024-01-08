@@ -42,10 +42,30 @@ class BussinessProfileRepository
             $this->model->create($validated);
             return true;
         } catch (\Exception $e) {
+            info($e->getMessage());
             error_log($e->getMessage());
             return false;
         }
     }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function edit($id)
+    {
+
+        try {
+            $data = $this->findById($id);
+            return $data;
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
+
+    
     /**
      * @param $id
      * @return bool

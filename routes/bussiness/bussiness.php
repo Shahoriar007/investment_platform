@@ -16,7 +16,8 @@ Route::middleware(['auth'])->group(function () {
 
     // bussiness profile resource route
     Route::get('/bussiness-profile', [BussinessProfileController::class, 'index'])->name('bussiness-profile');
-    Route::post('/bussiness-profile', [BussinessProfileController::class, 'store'])->name('create-bussiness-profile');
+    Route::get('/bussiness-profile/create', [BussinessProfileController::class, 'create'])->name('create-bussiness-profile');
+    Route::post('/bussiness-profile', [BussinessProfileController::class, 'store'])->name('store-bussiness-profile');
     Route::get('/bussiness-profile/{id}/edit', [BussinessProfileController::class, 'edit'])->name('edit-bussiness-profile');
     Route::put('/bussiness-profile/{id}', [BussinessProfileController::class, 'update'])->name('update-bussiness-profile');
     Route::delete('/bussiness-profile', [BussinessProfileController::class, 'destroy'])->name('delete-bussiness-profile');
