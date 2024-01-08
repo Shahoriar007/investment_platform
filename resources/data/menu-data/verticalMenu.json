@@ -30,6 +30,12 @@
         "name": "Bussiness Category",
         "icon": "package",
         "slug": "bussiness-category"
+    },
+    {
+        "url": "/bussiness-profile",
+        "name": "Bussiness profile",
+        "icon": "package",
+        "slug": "bussiness-profile"
     }
 	]
 }
