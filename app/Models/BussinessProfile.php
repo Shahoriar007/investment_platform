@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 
 class BussinessProfile extends Model
 {
@@ -29,4 +31,9 @@ class BussinessProfile extends Model
         'updated_by',
         'deleted_by',
     ];
+
+    public function posts(): MorphMany
+    {
+        return $this->morphMany(Post::class, 'postable');
+    }
 }

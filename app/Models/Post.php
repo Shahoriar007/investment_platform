@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+
 
 class Post extends Model
 {
@@ -22,9 +24,17 @@ class Post extends Model
         'photo' ,
         'investment_amount',
         'industry',
+        'postable_id',
+        'postable_type',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
+
+    public function postable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
 
 }
