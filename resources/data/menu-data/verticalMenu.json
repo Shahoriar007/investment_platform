@@ -42,6 +42,12 @@
         "name": "Investor profile",
         "icon": "package",
         "slug": "investor-profile"
+    },
+    {
+        "url": "/post",
+        "name": "Post",
+        "icon": "package",
+        "slug": "post"
     }
 	]
 }
