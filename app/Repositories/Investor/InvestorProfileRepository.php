@@ -10,13 +10,12 @@ class InvestorProfileRepository
 {
 
     private InvestorProfile $model;
-    private UserPivotProfile $model2;
 
 
-    public function __construct(InvestorProfile $model, UserPivotProfile $model2)
+    public function __construct(InvestorProfile $model)
     {
         $this->model = $model;
-        $this->model2 = $model2;
+
 
     }
 
@@ -45,13 +44,8 @@ class InvestorProfileRepository
     {
 
         try {
-            $investor = $this->model->create($validated);
-            $userId = auth()->user()->id;
-            $this->model2->create([
-                'user_id' => $userId,
-                'profileable_id' => $investor->id,
-                'profileable_type' => get_class($investor),
-            ]);
+             $this->model->create($validated);
+
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());

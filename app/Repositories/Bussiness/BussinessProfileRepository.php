@@ -10,12 +10,10 @@ class BussinessProfileRepository
 {
 
     private BussinessProfile $model;
-    private UserPivotProfile $model2;
 
-    public function __construct(BussinessProfile $model, UserPivotProfile $model2)
+    public function __construct(BussinessProfile $model)
     {
         $this->model = $model;
-        $this->model2 = $model2;
 
     }
 
@@ -44,14 +42,8 @@ class BussinessProfileRepository
     {
 
         try {
-            $bussiness = $this->model->create($validated);
-            $userId = auth()->user()->id;
-            info(get_class($bussiness));
-            $this->model2->create([
-                'user_id' => $userId,
-                'profileable_id' => $bussiness->id,
-                'profileable_type' => get_class($bussiness),
-            ]);
+             $this->model->create($validated);
+
 
             return true;
         } catch (\Exception $e) {
