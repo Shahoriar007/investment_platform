@@ -4,15 +4,19 @@ namespace App\Repositories\Bussiness;
 
 
 use App\Models\BussinessProfile;
+use App\Models\UserPivotProfile;
 
 class BussinessProfileRepository
 {
 
     private BussinessProfile $model;
+    private UserPivotProfile $model2;
 
-    public function __construct(BussinessProfile $model)
+    public function __construct(BussinessProfile $model, UserPivotProfile $model2)
     {
         $this->model = $model;
+        $this->model2 = $model2;
+
     }
 
     /**
@@ -40,7 +44,15 @@ class BussinessProfileRepository
     {
 
         try {
-            $this->model->create($validated);
+            $bussiness = $this->model->create($validated);
+            $userId = auth()->user()->id;
+            info(get_class($bussiness));
+            $this->model2->create([
+                'user_id' => $userId,
+                'profileable_id' => $bussiness->id,
+                'profileable_type' => get_class($bussiness),
+            ]);
+
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());

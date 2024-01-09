@@ -26,7 +26,6 @@ class BussinessProfile extends Model
         'bussiness_categories_id',
         'total_permanent_employee',
         'established_date',
-
         'created_by',
         'updated_by',
         'deleted_by',

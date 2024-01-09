@@ -4,15 +4,20 @@ namespace App\Repositories\Investor;
 
 
 use App\Models\InvestorProfile;
+use App\Models\UserPivotProfile;
 
 class InvestorProfileRepository
 {
 
     private InvestorProfile $model;
+    private UserPivotProfile $model2;
 
-    public function __construct(InvestorProfile $model)
+
+    public function __construct(InvestorProfile $model, UserPivotProfile $model2)
     {
         $this->model = $model;
+        $this->model2 = $model2;
+
     }
 
     /**
@@ -40,7 +45,13 @@ class InvestorProfileRepository
     {
 
         try {
-            $this->model->create($validated);
+            $investor = $this->model->create($validated);
+            $userId = auth()->user()->id;
+            $this->model2->create([
+                'user_id' => $userId,
+                'profileable_id' => $investor->id,
+                'profileable_type' => get_class($investor),
+            ]);
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());

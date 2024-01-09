@@ -23,17 +23,6 @@ class NewsfeedRepository
         $this->modelInvestorProfile = $modelInvestorProfile;
     }
 
-    /**
-     * @return array
-     */
-
-
-
-    /**
-     * @param $id
-     * @return Post
-     */
-
 
     public function apiShow()
     {
