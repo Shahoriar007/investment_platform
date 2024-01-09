@@ -4,15 +4,18 @@ namespace App\Repositories\Investor;
 
 
 use App\Models\InvestorProfile;
+use App\Models\User;
 
 class InvestorProfileRepository
 {
 
     private InvestorProfile $model;
 
+
     public function __construct(InvestorProfile $model)
     {
         $this->model = $model;
+
     }
 
     /**
@@ -40,7 +43,11 @@ class InvestorProfileRepository
     {
 
         try {
-            $this->model->create($validated);
+            $investor = $this->model->create($validated);
+            $id = auth()->user()->id;
+            $investor->update([
+                'user_id' => $id,
+            ]);
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());
@@ -115,6 +122,8 @@ class InvestorProfileRepository
             return [];
         }
     }
+
+
 
     public function apiShow($id)
     {

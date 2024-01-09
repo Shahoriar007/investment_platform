@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 
 class InvestorProfile extends Model
 {
@@ -11,12 +13,13 @@ class InvestorProfile extends Model
 
     protected $fillable = [
         'name' ,
+        'user_id',
         'company_name' ,
         'contact' ,
         'email' ,
         'location' ,
         'investment_range' ,
-        'proffession' ,
+        'proffession',
         'designation',
         'linkedin_profile' ,
         'photo' ,
@@ -24,4 +27,6 @@ class InvestorProfile extends Model
         'updated_by',
         'deleted_by',
     ];
+
+
 }

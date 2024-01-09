@@ -28,6 +28,8 @@ class UpdatePostRequest extends FormRequest
             'created_by' => 'nullable|exists:users,id',
             'updated_by' => 'nullable|exists:users,id',
             'deleted_by' => 'nullable|exists:users,id',
+            'profileable_type' => 'required|string',
+            'profileable_id' => 'required|exists:bussiness_profiles,id|exists:investor_profiles,id'
         ];
     }
 }

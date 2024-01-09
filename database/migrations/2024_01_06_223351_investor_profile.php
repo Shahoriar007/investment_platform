@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('investor_profiles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('contact')->nullable();
             $table->string('email')->nullable();

@@ -27,6 +27,8 @@ class PostTransformer extends TransformerAbstract
             'created_by' =>$post->created_by,
             'updated_by' =>$post->updated_by,
             'deleted_by' =>$post->deleted_by,
+            'profileable_type' => $post->profileable_type,
+            'profileable_id' =>$post->profileable_id
 
 
         ];

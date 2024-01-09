@@ -4,6 +4,7 @@ namespace App\Repositories\Bussiness;
 
 
 use App\Models\BussinessProfile;
+use App\Models\User;
 
 class BussinessProfileRepository
 {
@@ -13,6 +14,7 @@ class BussinessProfileRepository
     public function __construct(BussinessProfile $model)
     {
         $this->model = $model;
+
     }
 
     /**
@@ -40,7 +42,12 @@ class BussinessProfileRepository
     {
 
         try {
-            $this->model->create($validated);
+             $bussiness = $this->model->create($validated);
+             $id = auth()->user()->id;
+             $bussiness->update([
+                'user_id' => $id,
+            ]);
+
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());
@@ -115,6 +122,8 @@ class BussinessProfileRepository
             return [];
         }
     }
+
+
 
     public function apiShow($id)
     {
