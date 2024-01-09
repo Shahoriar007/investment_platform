@@ -48,6 +48,12 @@
         "name": "Post",
         "icon": "package",
         "slug": "post"
+    },
+    {
+        "url": "/newsfeed",
+        "name": "Newsfeed",
+        "icon": "package",
+        "slug": "newsfeed"
     }
 	]
 }

@@ -28,6 +28,9 @@ require __DIR__ . '/investor/apiInvestor.php';
 require __DIR__ . '/posts/post.php';
 require __DIR__ . '/posts/apiPost.php';
 
+//newsfeed routes
+require __DIR__ . '/newsfeed/apiNewsfeed.php';
+
 
 
 
