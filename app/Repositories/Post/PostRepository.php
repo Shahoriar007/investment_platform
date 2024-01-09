@@ -40,7 +40,8 @@ class PostRepository
     {
 
         try {
-            $this->model->create($validated);
+            $post = $this->model->create($validated);
+            
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());

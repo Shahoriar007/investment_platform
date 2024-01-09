@@ -13,6 +13,7 @@ class BussinessProfile extends Model
 
     protected $fillable = [
         'name' ,
+        'user_id',
         'company_name' ,
         'contact' ,
         'email' ,
@@ -31,8 +32,5 @@ class BussinessProfile extends Model
         'deleted_by',
     ];
 
-    public function posts(): MorphMany
-    {
-        return $this->morphMany(Post::class, 'postable');
-    }
+
 }

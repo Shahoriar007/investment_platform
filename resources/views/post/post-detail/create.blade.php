@@ -149,6 +149,27 @@
                                                     @enderror
                                             </div>
 
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="title">Post Type</label>
+                                                <input type="text" id="post_type" name="post_type" class="form-control"
+                                                    placeholder="Enter post_type" required>
+                                                    @error('post_type')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="select_profile">Select Profiles</label>
+                                                <select id="select_profile" name="profileable_type" class="form-control" required>
+                                                    <option value="App\Models\BussinessProfile">Bussiness</option>
+                                                    <option value="App\Models\InvestorProfile">Investor</option>
+                                                </select>
+                                                @error('select_profile')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+
 
 
 

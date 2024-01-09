@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('bussiness_profiles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('company_name')->nullable();
             $table->string('contact')->nullable();

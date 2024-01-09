@@ -13,12 +13,13 @@ class InvestorProfile extends Model
 
     protected $fillable = [
         'name' ,
+        'user_id',
         'company_name' ,
         'contact' ,
         'email' ,
         'location' ,
         'investment_range' ,
-        'proffession' ,
+        'proffession',
         'designation',
         'linkedin_profile' ,
         'photo' ,
@@ -27,8 +28,5 @@ class InvestorProfile extends Model
         'deleted_by',
     ];
 
-    public function posts(): MorphMany
-    {
-        return $this->morphMany(Post::class, 'postable');
-    }
+
 }
