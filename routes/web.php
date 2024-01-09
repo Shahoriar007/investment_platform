@@ -19,9 +19,14 @@ require __DIR__ . '/blogs/blogs.php';
 require __DIR__ . '/bussiness/bussiness.php';
 require __DIR__ . '/bussiness/apiBussiness.php';
 
-//Inventor routes
+//Investor routes
 require __DIR__ . '/investor/investor.php';
 require __DIR__ . '/investor/apiInvestor.php';
+
+
+//post routes
+require __DIR__ . '/posts/post.php';
+require __DIR__ . '/posts/apiPost.php';
 
 
 
