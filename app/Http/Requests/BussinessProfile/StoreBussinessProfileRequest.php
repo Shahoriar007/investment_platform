@@ -20,6 +20,7 @@ class StoreBussinessProfileRequest extends FormRequest
             'contact' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
+            'photo' => ['nullable','image', 'mimes:jpeg,png,jpg', 'max:1012'],
             'avg_monthly_sale' => ['nullable', 'numeric'],
             'latest_yearly_sale' => ['nullable', 'numeric'],
             'profit_margin_percentage' => ['nullable', 'numeric'],

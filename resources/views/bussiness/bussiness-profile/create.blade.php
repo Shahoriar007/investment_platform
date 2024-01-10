@@ -83,6 +83,15 @@
                                             </div>
 
                                             <div class="col-md-12">
+                                                <label class="form-label" for="photo">photo</label>
+                                                <input type="file" id="photo" name="photo" class="form-control"
+                                                    placeholder="Enter photo" required>
+                                                    @error('photo')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+
+                                            <div class="col-md-12">
                                                 <label class="form-label" for="title">Address</label>
                                                 <input type="text" id="address" name="address" class="form-control"
                                                     placeholder="Enter address" required>

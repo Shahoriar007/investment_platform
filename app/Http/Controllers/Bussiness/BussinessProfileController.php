@@ -52,7 +52,7 @@ class BussinessProfileController extends Controller
 
         $validated = $request->validated();
 
-        $data = $this->repository->store($validated);
+        $data = $this->repository->store($validated, $request);
 
         if($data){
             return redirect()->route('bussiness-profile')->with('success', 'bussiness profile successfully created.');

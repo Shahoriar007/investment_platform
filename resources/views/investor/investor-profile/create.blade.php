@@ -92,6 +92,15 @@
                                             </div>
 
                                             <div class="col-md-12">
+                                                <label class="form-label" for="photo">photo</label>
+                                                <input type="file" id="photo" name="photo" class="form-control"
+                                                    placeholder="Enter photo" required>
+                                                    @error('photo')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
+                                            </div>
+
+                                            <div class="col-md-12">
                                                 <label class="form-label" for="title">investment range</label>
                                                 <input type="text" id="investment_range" name="investment_range" class="form-control"
                                                     placeholder="Enter investment range" required>
@@ -123,14 +132,7 @@
                                                         <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">photo</label>
-                                                <input type="text" id="photo" name="photo" class="form-control"
-                                                    placeholder="Enter photo" required>
-                                                    @error('photo')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
+                                          
 
 
                                             <div class="col-md-12">
