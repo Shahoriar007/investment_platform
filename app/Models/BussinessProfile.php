@@ -36,6 +36,11 @@ class BussinessProfile extends Model
         return $this->morphMany(Post::class, 'profileable');
     }
 
+    public function photos(): MorphMany
+    {
+        return $this->morphMany(Photo::class, 'photoable');
+    }
+
 
 
 }
