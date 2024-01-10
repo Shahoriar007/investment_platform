@@ -9,8 +9,10 @@ class NewsfeedTransformer extends TransformerAbstract
 {
     public function transform(Post $post)
     {
+        
 
         return [
+
 
 
 

@@ -7,6 +7,7 @@ use App\Models\BussinessProfile;
 use App\Models\InvestorProfile;
 use App\Models\Post;
 
+
 class PostRepository
 {
 

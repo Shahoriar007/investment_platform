@@ -24,13 +24,17 @@ class Post extends Model
         'photo' ,
         'investment_amount',
         'industry',
-        'profilable_id',
+        'profileable_id',
         'profileable_type',
         'created_by',
         'updated_by',
         'deleted_by',
     ];
 
+    public function profileable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 
 
 

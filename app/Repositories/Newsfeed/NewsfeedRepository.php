@@ -24,15 +24,12 @@ class NewsfeedRepository
     }
 
 
-    public function apiShow()
+    public function apiShow($includeProfileable)
     {
 
         try {
-            $data = $this->modelPost
-            ->with('postable')
-            ->latest()
-            ->get();
-            info($data);
+            $query = $this->modelPost->with('profileable')->latest();
+            $data = $query->get();
             return $data;
         } catch (\Exception $e) {
             error_log($e->getMessage());
