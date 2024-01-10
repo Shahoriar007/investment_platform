@@ -27,6 +27,10 @@ class InvestorProfile extends Model
         'updated_by',
         'deleted_by',
     ];
+    public function posts(): MorphMany
+    {
+        return $this->morphMany(Post::class, 'profileable');
+    }
 
 
 }

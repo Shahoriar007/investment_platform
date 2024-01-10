@@ -50,6 +50,8 @@ class PostController extends Controller
 
     public function store( StorePostRequest $request){
 
+        info($request);
+
         $validated = $request->validated();
 
         $data = $this->repository->store($validated);
@@ -120,6 +122,16 @@ class PostController extends Controller
         return response()->json([
             'data' => $transformedData
         ]);
+    }
+
+    public function fetch(Request $request){
+        $profile_type = $request->get('profile_type');
+        $data = $this->repository->fetchAll($profile_type);
+
+        return response()->json([
+            'data' => $data,
+        ]);
+
     }
 
 }

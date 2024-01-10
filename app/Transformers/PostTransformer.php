@@ -5,10 +5,15 @@ namespace App\Transformers;
 use App\Models\Post;
 use League\Fractal\TransformerAbstract;
 
+
 class PostTransformer extends TransformerAbstract
 {
+
+
     public function transform(Post $post)
     {
+
+
 
         return [
             'id' => $post->id,
@@ -28,9 +33,14 @@ class PostTransformer extends TransformerAbstract
             'updated_by' =>$post->updated_by,
             'deleted_by' =>$post->deleted_by,
             'profileable_type' => $post->profileable_type,
-            'profileable_id' =>$post->profileable_id
+            'profileable_id' =>$post->profileable_id,
+            'profileable' => $post->profileable,
+
 
 
         ];
     }
+
+
+
 }

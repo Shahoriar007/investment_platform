@@ -21,9 +21,11 @@ class NewsfeedController extends Controller
         $this->repository = $repository;
     }
 
-    public function apiShow()
+    public function apiShow(Request $request)
     {
-        $data = $this->repository->apiShow();
+        $includeProfileable = $request->query('include') === 'profileable';
+
+        $data = $this->repository->apiShow($includeProfileable);
 
         if (!$data) {
             return response()->json([
@@ -32,10 +34,10 @@ class NewsfeedController extends Controller
         }
 
         $manager = new Manager();
-        $resource = new Collection($data, new NewsfeedTransformer());
-
+        $resource = new Collection($data, new PostTransformer());
         $transformedData = $manager->createData($resource)->toArray();
 
+        info($transformedData);
         return response()->json([
             'data' => $transformedData
         ]);
