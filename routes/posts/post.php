@@ -15,6 +15,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/post/{id}', [PostController::class, 'update'])->name('update-post');
     Route::delete('/post', [PostController::class, 'destroy'])->name('delete-post');
 
+    Route::get('/fetch-profiles', [PostController::class, 'fetch'])->name('fetch-profiles');
+
+
 
 
 

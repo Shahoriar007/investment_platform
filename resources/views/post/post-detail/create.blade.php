@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <div class="row">
 
-                                <form method="POST" action="{{ route('store-post') }}"  enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('store-post') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="col-lg-8 mx-auto">
@@ -48,121 +48,131 @@
                                         <div class="row g-3">
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">Post Title</label>
-                                                <input type="text" id="post_title" name="post_title"  class="form-control"
+                                                <input type="text" id="post_title" name="post_title" class="form-control"
                                                     placeholder="Enter post_title" required>
-                                                    @error('post_title')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('post_title')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title"> Company Name</label>
-                                                <input type="text" id="company_name" name="company_name" class="form-control"
-                                                    placeholder="Enter company name" required>
-                                                    @error('company_name')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="company_name" name="company_name"
+                                                    class="form-control" placeholder="Enter company name" required>
+                                                @error('company_name')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">Contact</label>
-                                                <input type="text" id="contact" name="contact"  class="form-control"
+                                                <input type="text" id="contact" name="contact" class="form-control"
                                                     placeholder="Enter contact" required>
-                                                    @error('contact')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('contact')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">email</label>
                                                 <input type="text" id="email" name="email" class="form-control"
                                                     placeholder="Enteremail" required>
-                                                    @error('email')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">location</label>
                                                 <input type="text" id="location" name="location" class="form-control"
                                                     placeholder="Enter location" required>
-                                                    @error('location')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('location')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">investment amount</label>
-                                                <input type="text" id="investment_amount" name="investment_amount" class="form-control"
-                                                    placeholder="Enter investment amount" required>
-                                                    @error('investment_amount')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="investment_amount" name="investment_amount"
+                                                    class="form-control" placeholder="Enter investment amount" required>
+                                                @error('investment_amount')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">Royality</label>
                                                 <input type="text" id="royality" name="royality" class="form-control"
                                                     placeholder="Enter royality" required>
-                                                    @error('royality')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('royality')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">industry</label>
-                                                <input type="text" id="industry" name="industry" class="form-control"
-                                                    placeholder="Enter industry" required>
-                                                    @error('industry')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="industry" name="industry"
+                                                    class="form-control" placeholder="Enter industry" required>
+                                                @error('industry')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">description</label>
-                                                <input type="text" id="description" name="description" class="form-control"
-                                                    placeholder="Enter description" required>
-                                                    @error('description')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="description" name="description"
+                                                    class="form-control" placeholder="Enter description" required>
+                                                @error('description')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">linkedin </label>
-                                                <input type="text" id="linkedin" name="linkedin" class="form-control"
-                                                    placeholder="Enter linkedin" required>
-                                                    @error('linkedin')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="linkedin" name="linkedin"
+                                                    class="form-control" placeholder="Enter linkedin" required>
+                                                @error('linkedin')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">photo</label>
                                                 <input type="text" id="photo" name="photo" class="form-control"
                                                     placeholder="Enter photo" required>
-                                                    @error('photo')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                @error('photo')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">Post Type</label>
-                                                <input type="text" id="post_type" name="post_type" class="form-control"
-                                                    placeholder="Enter post_type" required>
-                                                    @error('post_type')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="post_type" name="post_type"
+                                                    class="form-control" placeholder="Enter post_type" required>
+                                                @error('post_type')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">Post Type</label>
-                                                <input type="text" id="post_type" name="post_type" class="form-control"
-                                                    placeholder="Enter post_type" required>
-                                                    @error('post_type')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
+
 
                                             <div class="col-md-12">
-                                                <label class="form-label" for="select_profile">Select Profiles</label>
-                                                <select id="select_profile" name="profileable_type" class="form-control" required>
+                                                <label class="form-label" for="select_profile_type">Select Profile
+                                                    Type</label>
+                                                <select id="select_profile_type" name="profileable_type"
+                                                    class="form-control" required>
+                                                    <option value="" >Select profile type</option>
                                                     <option value="App\Models\BussinessProfile">Bussiness</option>
                                                     <option value="App\Models\InvestorProfile">Investor</option>
+                                                </select>
+                                                @error('select_profile_type')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+
+
+                                            <!-- Investor Profile Dropdown -->
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="select_profile">Select Profile</label>
+                                                <select id="select_profile" name="profileable_id" class="form-control"
+                                                    required>
+
                                                 </select>
                                                 @error('select_profile')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -173,30 +183,31 @@
 
 
 
+
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">created_by</label>
-                                                <input type="text" id="created_by" name="created_by" class="form-control"
-                                                    placeholder="Enter created_by" required>
-                                                    @error('created_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="created_by" name="created_by"
+                                                    class="form-control" placeholder="Enter created_by" required>
+                                                @error('created_by')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">updated_by</label>
-                                                <input type="text" id="updated_by" name="updated_by" class="form-control"
-                                                    placeholder="Enter updated_by" required>
-                                                    @error('updated_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="updated_by" name="updated_by"
+                                                    class="form-control" placeholder="Enter updated_by" required>
+                                                @error('updated_by')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">deleted_by</label>
-                                                <input type="text" id="deleted_by" name="deleted_by" class="form-control"
-                                                    placeholder="Enter deleted_by" required>
-                                                    @error('deleted_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <input type="text" id="deleted_by" name="deleted_by"
+                                                    class="form-control" placeholder="Enter deleted_by" required>
+                                                @error('deleted_by')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
 
@@ -254,5 +265,30 @@
                         CKEDITOR.replace('description');
                     </script>
 
-
                 @endsection
+
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        $('#select_profile_type').change(function() {
+                            var selectedProfileType = $(this).val();
+                            $.ajax({
+                                url: '/fetch-profiles',
+                                type: 'GET',
+                                data: {
+                                    profile_type: selectedProfileType
+                                },
+                                success: function(data) {
+                                    $('#select_profile').empty();
+                                    $.each(data.data, function(index, profile) {
+                                        $('#select_profile').append('<option value="' + profile.id +
+                                            '">' + profile.name + '</option>');
+                                    });
+                                },
+                                error: function(error) {
+                                    console.error('Error fetching profiles:', error);
+                                }
+                            });
+                        });
+                    });
+                </script>
