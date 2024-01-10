@@ -4,17 +4,24 @@ namespace App\Repositories\Investor;
 
 
 use App\Models\InvestorProfile;
+use App\Models\Photo;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class InvestorProfileRepository
 {
 
     private InvestorProfile $model;
+    private Photo $model2;
 
 
-    public function __construct(InvestorProfile $model)
+
+
+    public function __construct(InvestorProfile $model, Photo $model2)
     {
         $this->model = $model;
+        $this->model2 = $model2;
+
 
     }
 
@@ -39,7 +46,7 @@ class InvestorProfileRepository
      * @return bool
      */
 
-    public function store($validated): bool
+    public function store($validated, $request): bool
     {
 
         try {
@@ -48,6 +55,26 @@ class InvestorProfileRepository
             $investor->update([
                 'user_id' => $id,
             ]);
+
+
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/investorProfile/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\InvestorProfile',
+                        'photoable_id' => $investor->id,
+                        'photo_url' => 'storage/investorProfile/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+            }
+
             return true;
         } catch (\Exception $e) {
             info($e->getMessage());
