@@ -51,7 +51,7 @@ class InvestorProfileController extends Controller
 
         $validated = $request->validated();
 
-        $data = $this->repository->store($validated);
+        $data = $this->repository->store($validated, $request);
 
         if($data){
             return redirect()->route('investor-profile')->with('success', 'investor profile successfully created.');

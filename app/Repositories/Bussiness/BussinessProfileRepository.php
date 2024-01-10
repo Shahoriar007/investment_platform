@@ -4,16 +4,22 @@ namespace App\Repositories\Bussiness;
 
 
 use App\Models\BussinessProfile;
+use App\Models\Photo;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class BussinessProfileRepository
 {
 
     private BussinessProfile $model;
+    private Photo $model2;
 
-    public function __construct(BussinessProfile $model)
+
+    public function __construct(BussinessProfile $model, Photo $model2)
     {
         $this->model = $model;
+        $this->model2 = $model2;
+
 
     }
 
@@ -38,15 +44,39 @@ class BussinessProfileRepository
      * @return bool
      */
 
-    public function store($validated): bool
+    public function store($validated, $request): bool
     {
 
         try {
+
+
              $bussiness = $this->model->create($validated);
              $id = auth()->user()->id;
              $bussiness->update([
                 'user_id' => $id,
             ]);
+
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/bussinessProfile/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\BussinessProfile',
+                        'photoable_id' => $bussiness->id,
+                        'photo_url' => 'storage/bussinessProfile/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+
+
+
+            }
+
 
             return true;
         } catch (\Exception $e) {
