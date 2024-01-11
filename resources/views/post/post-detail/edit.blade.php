@@ -82,14 +82,7 @@
                                             </div>
 
 
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">location</label>
-                                                <input type="text" id="location" name="location" value="{{ $data->location }}" class="form-control"
-                                                    placeholder="Enter location" required>
-                                                    @error('location')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
+
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">investment amount</label>
@@ -133,14 +126,7 @@
                                                         <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">photo</label>
-                                                <input type="text" id="photo" name="photo" value="{{ $data->photo }}" class="form-control"
-                                                    placeholder="Enter photo" required>
-                                                    @error('photo')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
+
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">Post Type</label>
                                                 <input type="text" id="post_type" name="post_type" value="{{ $data->post_type }}" class="form-control"
@@ -150,40 +136,21 @@
                                                     @enderror
                                             </div>
 
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">created_by</label>
-                                                <input type="text" id="created_by" name="created_by" value="{{ $data->created_by }}" class="form-control"
-                                                    placeholder="Enter created_by" required>
-                                                    @error('created_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">updated_by</label>
-                                                <input type="text" id="updated_by" name="updated_by" value="{{ $data->updated_by }}" class="form-control"
-                                                    placeholder="Enter updated_by" required>
-                                                    @error('updated_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">deleted_by</label>
-                                                <input type="text" id="deleted_by" name="deleted_by" value="{{ $data->deleted_by }}" class="form-control"
-                                                    placeholder="Enter deleted_by" required>
-                                                    @error('deleted_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                            <div class="col-md-4">
+                                                @if (!empty($data->photos) && count($data->photos) > 0 && isset($data->photos[0]))
+                                                    <img src="{{ asset($data->photos[0]->photo_url) }}" alt="Featured Picture" class="img-thumbnail" style="max-width: 200px;">
+                                                @endif
                                             </div>
 
 
+                                            <div class="col-md-8">
+                                                <label class="form-label" for="photo">Change Picture</label>
+                                                <input type="file" id="photo" name="photo" class="form-control">
+                                                @error('photo')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
 
-
-
-
-
-
+                                            </div>
 
 
                                         </div>

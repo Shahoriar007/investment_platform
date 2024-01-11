@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bussiness;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BussinessProfile\StoreBussinessProfileRequest;
 use App\Http\Requests\BussinessProfile\UpdateBussinessProfileRequest;
+use App\Models\BussinessCategory;
 use App\Repositories\Bussiness\BussinessProfileRepository;
 use App\Transformers\BussinessProfileTransformer;
 use Illuminate\Http\Request;
@@ -43,8 +44,9 @@ class BussinessProfileController extends Controller
         $breadcrumbs = [
             ['link' => "/bussiness-profile", 'name' => "Bussiness profile"], ['name' => "Create"]
         ];
+        $bussiness_categories = BussinessCategory::all();
 
-        return view('bussiness.bussiness-profile.create', compact('breadcrumbs'));
+        return view('bussiness.bussiness-profile.create', compact('breadcrumbs', 'bussiness_categories'));
     }
 
 
@@ -69,8 +71,9 @@ class BussinessProfileController extends Controller
         ];
 
         $data = $this->repository->edit($id);
+        $bussiness_categories = BussinessCategory::all();
 
-        return view('bussiness.bussiness-profile.edit', compact('data', 'breadcrumbs'));
+        return view('bussiness.bussiness-profile.edit', compact('data', 'breadcrumbs', 'bussiness_categories'));
     }
 
     public function update(UpdateBussinessProfileRequest $request, $id)

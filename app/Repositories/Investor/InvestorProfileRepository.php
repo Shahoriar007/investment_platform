@@ -50,8 +50,9 @@ class InvestorProfileRepository
     {
 
         try {
-            $investor = $this->model->create($validated);
             $id = auth()->user()->id;
+            $validated['created_by'] = $id;
+            $investor = $this->model->create($validated);
             $investor->update([
                 'user_id' => $id,
             ]);
@@ -92,7 +93,7 @@ class InvestorProfileRepository
     {
 
         try {
-            $data = $this->findById($id);
+            $data = $this->model->with('photos')->where('id', '=', $id)->first();
             return $data;
         } catch (\Exception $e) {
             error_log($e->getMessage());
@@ -104,7 +105,28 @@ class InvestorProfileRepository
     {
         try {
             $data = $this->findById($id);
+            $validated['updated_by'] = auth()->user()->id;
             $data->update($validated);
+            $investor = $data->fresh();
+
+
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/investorProfile/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\InvestorProfile',
+                        'photoable_id' => $investor->id,
+                        'photo_url' => 'storage/investorProfile/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+            }
             return true;
 
         } catch (\Exception $e) {
@@ -125,6 +147,7 @@ class InvestorProfileRepository
 
         try {
             $data = $this->findById($id);
+            $data['deleted_by'] = auth()->user()->id;
             $data->delete();
             return true;
         } catch (\Exception $e) {

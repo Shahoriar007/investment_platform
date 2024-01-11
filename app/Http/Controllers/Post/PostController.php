@@ -54,7 +54,7 @@ class PostController extends Controller
 
         $validated = $request->validated();
 
-        $data = $this->repository->store($validated);
+        $data = $this->repository->store($validated, $request);
 
         if($data){
             return redirect()->route('post')->with('success', 'post successfully created.');

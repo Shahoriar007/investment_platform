@@ -82,14 +82,7 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">location</label>
-                                                <input type="text" id="location" name="location" class="form-control"
-                                                    placeholder="Enter location" required>
-                                                @error('location')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">investment amount</label>
@@ -132,23 +125,13 @@
                                                 @enderror
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label" for="title">photo</label>
-                                                <input type="text" id="photo" name="photo" class="form-control"
+                                                <label class="form-label" for="photo">photo</label>
+                                                <input type="file" id="photo" name="photo" class="form-control"
                                                     placeholder="Enter photo" required>
-                                                @error('photo')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
+                                                    @error('photo')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                             </div>
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">Post Type</label>
-                                                <input type="text" id="post_type" name="post_type"
-                                                    class="form-control" placeholder="Enter post_type" required>
-                                                @error('post_type')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-
 
 
                                             <div class="col-md-12">
@@ -156,7 +139,7 @@
                                                     Type</label>
                                                 <select id="select_profile_type" name="profileable_type"
                                                     class="form-control" required>
-                                                    <option value="" >Select profile type</option>
+                                                    <option value="">Select profile type</option>
                                                     <option value="App\Models\BussinessProfile">Bussiness</option>
                                                     <option value="App\Models\InvestorProfile">Investor</option>
                                                 </select>
@@ -179,38 +162,16 @@
                                                 @enderror
                                             </div>
 
-
-
-
-
-
                                             <div class="col-md-12">
-                                                <label class="form-label" for="title">created_by</label>
-                                                <input type="text" id="created_by" name="created_by"
-                                                    class="form-control" placeholder="Enter created_by" required>
-                                                @error('created_by')
+                                                <label class="form-label" for="title">Select post type</label>
+                                                <select id="post_type" name="post_type" class="form-control" required>
+
+                                                </select>
+
+                                                @error('post_type')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">updated_by</label>
-                                                <input type="text" id="updated_by" name="updated_by"
-                                                    class="form-control" placeholder="Enter updated_by" required>
-                                                @error('updated_by')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">deleted_by</label>
-                                                <input type="text" id="deleted_by" name="deleted_by"
-                                                    class="form-control" placeholder="Enter deleted_by" required>
-                                                @error('deleted_by')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-
-
 
                                         </div>
                                         <hr>
@@ -284,6 +245,39 @@
                                         $('#select_profile').append('<option value="' + profile.id +
                                             '">' + profile.name + '</option>');
                                     });
+
+                                    $('#post_type').empty();
+                                    if (selectedProfileType == 'App\\Models\\BussinessProfile') {
+                                        $('#post_type').append(
+                                            '<option value="Business Loan">Business Loan</option>');
+                                        $('#post_type').append(
+                                            '<option value="Business for Sale">Business for Sale</option>'
+                                            );
+                                        $('#post_type').append(
+                                            '<option value="Assets for Sale">Assets for Sale</option>');
+                                        $('#post_type').append(
+                                            '<option value="Franchise Opportunity">Franchise Opportunity</option>'
+                                            );
+
+                                    } else if (selectedProfileType == 'App\\Models\\InvestorProfile') {
+                                        $('#post_type').append(
+                                            '<option value="Buying business">Buying business</option>');
+                                        $('#post_type').append(
+                                            '<option value="Investing in business">Investing in business</option>'
+                                            );
+                                        $('#post_type').append(
+                                            '<option value="Landing money to Business">Landing money to Business</option>'
+                                            );
+                                            $('#post_type').append(
+                                            '<option value="Buying Bussiness Assets">Buying Bussiness Assets</option>'
+                                            );
+                                        $('#post_type').append(
+                                            '<option value="Buying Franchise">Buying Franchise</option>'
+                                            );
+                                    } else {
+
+                                    }
+
                                 },
                                 error: function(error) {
                                     console.error('Error fetching profiles:', error);

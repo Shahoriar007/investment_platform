@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('post_type')->nullable();
             $table->string('investment_amount')->nullable();
             $table->string('industry')->nullable();
-            $table->string('photo')->nullable();
             $table->unsignedBigInteger('profileable_id')->nullable();
             $table->string('profileable_type')->nullable();
             $table->unsignedBigInteger('created_by')->nullable()->comment('from users table');

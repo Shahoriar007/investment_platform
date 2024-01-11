@@ -24,12 +24,11 @@ class UpdatePostRequest extends FormRequest
             'post_type' => 'required|string|max:255',
             'investment_amount' => 'required|string|max:255',
             'industry' => 'nullable|string|max:255',
-            'photo' => 'nullable|string', // Assuming "photo" is an uploaded image file
             'created_by' => 'nullable|exists:users,id',
             'updated_by' => 'nullable|exists:users,id',
             'deleted_by' => 'nullable|exists:users,id',
-            'profileable_type' => 'required|string',
-            'profileable_id' => 'required|exists:bussiness_profiles,id|exists:investor_profiles,id'
+            'profileable_type' => 'nullable|string',
+            'profileable_id' => 'nullable'
         ];
     }
 }

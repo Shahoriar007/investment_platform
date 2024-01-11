@@ -48,10 +48,9 @@ class BussinessProfileRepository
     {
 
         try {
-
-
-             $bussiness = $this->model->create($validated);
              $id = auth()->user()->id;
+             $validated['created_by'] = $id;
+             $bussiness = $this->model->create($validated);
              $bussiness->update([
                 'user_id' => $id,
             ]);
@@ -95,7 +94,7 @@ class BussinessProfileRepository
     {
 
         try {
-            $data = $this->findById($id);
+            $data = $this->model->with('photos')->where('id', '=', $id)->first();
             return $data;
         } catch (\Exception $e) {
             error_log($e->getMessage());
@@ -107,7 +106,30 @@ class BussinessProfileRepository
     {
         try {
             $data = $this->findById($id);
+            $validated['updated_by'] = auth()->user()->id;
             $data->update($validated);
+            $bussiness = $data->fresh();
+
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/bussinessProfile/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\BussinessProfile',
+                        'photoable_id' => $bussiness->id,
+                        'photo_url' => 'storage/bussinessProfile/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+
+
+
+            }
             return true;
 
         } catch (\Exception $e) {
@@ -128,6 +150,7 @@ class BussinessProfileRepository
 
         try {
             $data = $this->findById($id);
+            $data['deleted_by'] = auth()->user()->id;
             $data->delete();
             return true;
         } catch (\Exception $e) {
