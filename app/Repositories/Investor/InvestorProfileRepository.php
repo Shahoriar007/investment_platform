@@ -50,8 +50,9 @@ class InvestorProfileRepository
     {
 
         try {
-            $investor = $this->model->create($validated);
             $id = auth()->user()->id;
+            $validated['created_by'] = $id;
+            $investor = $this->model->create($validated);
             $investor->update([
                 'user_id' => $id,
             ]);
@@ -104,6 +105,7 @@ class InvestorProfileRepository
     {
         try {
             $data = $this->findById($id);
+            $validated['updated_by'] = auth()->user()->id;
             $data->update($validated);
             return true;
 
@@ -125,6 +127,7 @@ class InvestorProfileRepository
 
         try {
             $data = $this->findById($id);
+            $data['deleted_by'] = auth()->user()->id;
             $data->delete();
             return true;
         } catch (\Exception $e) {

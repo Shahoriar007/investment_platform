@@ -101,7 +101,7 @@
                                             </div>
 
                                             <div class="col-md-12">
-                                                <label class="form-label" for="title">investment range</label>
+                                                <label class="form-label" for="title">investment amount</label>
                                                 <input type="text" id="investment_range" name="investment_range" class="form-control"
                                                     placeholder="Enter investment range" required>
                                                     @error('investment_range')
@@ -132,36 +132,6 @@
                                                         <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                             </div>
-                                          
-
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">created_by</label>
-                                                <input type="text" id="created_by" name="created_by" class="form-control"
-                                                    placeholder="Enter created_by" required>
-                                                    @error('created_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">updated_by</label>
-                                                <input type="text" id="updated_by" name="updated_by" class="form-control"
-                                                    placeholder="Enter updated_by" required>
-                                                    @error('updated_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">deleted_by</label>
-                                                <input type="text" id="deleted_by" name="deleted_by" class="form-control"
-                                                    placeholder="Enter deleted_by" required>
-                                                    @error('deleted_by')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
-
-
 
                                         </div>
                                         <hr>

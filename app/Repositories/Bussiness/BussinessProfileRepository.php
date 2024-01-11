@@ -48,10 +48,9 @@ class BussinessProfileRepository
     {
 
         try {
-
-
-             $bussiness = $this->model->create($validated);
              $id = auth()->user()->id;
+             $validated['created_by'] = $id;
+             $bussiness = $this->model->create($validated);
              $bussiness->update([
                 'user_id' => $id,
             ]);
@@ -107,6 +106,7 @@ class BussinessProfileRepository
     {
         try {
             $data = $this->findById($id);
+            $validated['updated_by'] = auth()->user()->id;
             $data->update($validated);
             return true;
 
@@ -128,6 +128,7 @@ class BussinessProfileRepository
 
         try {
             $data = $this->findById($id);
+            $data['deleted_by'] = auth()->user()->id;
             $data->delete();
             return true;
         } catch (\Exception $e) {
