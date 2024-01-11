@@ -82,14 +82,7 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">location</label>
-                                                <input type="text" id="location" name="location" class="form-control"
-                                                    placeholder="Enter location" required>
-                                                @error('location')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">investment amount</label>
@@ -132,13 +125,14 @@
                                                 @enderror
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label" for="title">photo</label>
-                                                <input type="text" id="photo" name="photo" class="form-control"
+                                                <label class="form-label" for="photo">photo</label>
+                                                <input type="file" id="photo" name="photo" class="form-control"
                                                     placeholder="Enter photo" required>
-                                                @error('photo')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
+                                                    @error('photo')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                             </div>
+
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="select_profile_type">Select Profile

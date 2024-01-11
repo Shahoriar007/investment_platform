@@ -82,6 +82,22 @@
                                                     @enderror
                                             </div>
 
+                                            <div class="col-md-4">
+                                                @if (!empty($data->photos) && count($data->photos) > 0 && isset($data->photos[0]))
+                                                    <img src="{{ asset($data->photos[0]->photo_url) }}" alt="Featured Picture" class="img-thumbnail" style="max-width: 200px;">
+                                                @endif
+                                            </div>
+
+
+                                            <div class="col-md-8">
+                                                <label class="form-label" for="photo">Change Picture</label>
+                                                <input type="file" id="photo" name="photo" class="form-control">
+                                                @error('photo')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+
+                                            </div>
+
 
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">location</label>
@@ -124,14 +140,7 @@
                                                         <div class="text-danger">{{ $message }}</div>
                                                     @enderror
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="form-label" for="title">photo</label>
-                                                <input type="text" id="photo" name="photo" value="{{ $data->photo }}" class="form-control"
-                                                    placeholder="Enter photo" required>
-                                                    @error('photo')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
-                                            </div>
+
 
 
                                         </div>

@@ -23,7 +23,7 @@ class UpdateInvestorProfileRequest extends FormRequest
             'investment_range' => ['nullable', 'numeric'],
             'designation' => ['nullable', 'string'],
             'linkedin_profile' => ['nullable', 'string'],
-            'photo' => ['nullable', 'string'],
+            'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:1012' ],
             'created_by' => ['nullable', 'exists:users,id'],
             'updated_by' => ['nullable', 'exists:users,id'],
             'deleted_by' => ['nullable', 'exists:users,id'],

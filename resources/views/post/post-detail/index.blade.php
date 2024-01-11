@@ -57,7 +57,6 @@
                                 <th>investment amount</th>
                                 <th>description</th>
                                 <th>linkedin</th>
-                                <th>photo</th>
                                 <th>royality</th>
                                 <th>post_type</th>
                                 <th>industry</th>
@@ -92,9 +91,7 @@
                                     <td>
                                         {{ $post->linkedin }}
                                     </td>
-                                    <td>
-                                        {{ $post->photo }}
-                                    </td>
+
                                     <td>
                                         {{ $post->royality }}
                                     </td>

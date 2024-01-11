@@ -100,6 +100,25 @@
                                                     @enderror
                                             </div>
 
+
+                                            <div class="col-md-4">
+                                                @if (!empty($data->photos) && count($data->photos) > 0 && isset($data->photos[0]))
+                                                    <img src="{{ asset($data->photos[0]->photo_url) }}" alt="Featured Picture" class="img-thumbnail" style="max-width: 200px;">
+                                                @endif
+                                            </div>
+
+
+                                            <div class="col-md-8">
+                                                <label class="form-label" for="photo">Change Picture</label>
+                                                <input type="file" id="photo" name="photo" class="form-control">
+                                                @error('photo')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+
+                                            </div>
+
+
+
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">avg_monthly_sale</label>
                                                 <input type="text" id="avg_monthly_sale" name="avg_monthly_sale" value="{{ $data->avg_monthly_sale }}" class="form-control"
@@ -146,12 +165,18 @@
                                                     placeholder="Enter description">{{ $data->description }}</textarea>
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label" for="title">bussiness_categories_id</label>
-                                                <input type="text" id="bussiness_categories_id" name="bussiness_categories_id" value="{{ $data->bussiness_categories_id }}" class="form-control"
-                                                    placeholder="Enter bussiness_categories_id" required>
-                                                    @error('bussiness_categories_id')
-                                                        <div class="text-danger">{{ $message }}</div>
-                                                    @enderror
+                                                <label class="form-label" for="title">Business Category</label>
+                                                <select id="business_categories_id" name="business_categories_id"
+                                                    class="form-control" required>
+
+                                                    @foreach ($bussiness_categories as $item)
+                                                        <option value="{{ $item->id }}" @php  $data->bussiness_categories_id == $item->id ?  'selected' : '' @endphp >{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                @error('bussiness_categories_id')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="form-label" for="title">total_permanent_employee</label>

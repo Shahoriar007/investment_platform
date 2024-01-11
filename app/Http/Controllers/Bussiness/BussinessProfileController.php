@@ -71,8 +71,9 @@ class BussinessProfileController extends Controller
         ];
 
         $data = $this->repository->edit($id);
+        $bussiness_categories = BussinessCategory::all();
 
-        return view('bussiness.bussiness-profile.edit', compact('data', 'breadcrumbs'));
+        return view('bussiness.bussiness-profile.edit', compact('data', 'breadcrumbs', 'bussiness_categories'));
     }
 
     public function update(UpdateBussinessProfileRequest $request, $id)

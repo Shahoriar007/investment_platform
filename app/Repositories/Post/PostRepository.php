@@ -6,6 +6,7 @@ namespace App\Repositories\Post;
 use App\Models\BussinessProfile;
 use App\Models\InvestorProfile;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostRepository
@@ -45,13 +46,35 @@ class PostRepository
      * @return bool
      */
 
-    public function store($validated): bool
+    public function store($validated, $request): bool
     {
 
         try {
+            $id = auth()->user()->id;
+            $validated['created_by'] = $id;
             $post = $this->model->create($validated);
 
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/post/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\Post',
+                        'photoable_id' => $post->id,
+                        'photo_url' => 'storage/post/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+
+            }
+
             return true;
+
         } catch (\Exception $e) {
             info($e->getMessage());
             error_log($e->getMessage());
@@ -80,7 +103,29 @@ class PostRepository
     {
         try {
             $data = $this->findById($id);
+            $validated['updated_by'] = auth()->user()->id;
             $data->update($validated);
+            $post = $data->fresh();
+
+            if ($request->hasFile('photo')) {
+                $image = $request->file('photo');
+                $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+                Storage::putFileAs('public/post/photos', $image, $filename);
+
+                try{
+                    $this->model2->create([
+                        'photoable_type' => 'App\\Models\\Post',
+                        'photoable_id' => $post->id,
+                        'photo_url' => 'storage/post/photos/' . $filename
+                    ]);
+                }catch(\Exception $exception){
+                    info($$exception->getMessage());
+                    error_log($$exception->getMessage());
+                    return false;
+                }
+
+            }
+
             return true;
 
         } catch (\Exception $e) {
